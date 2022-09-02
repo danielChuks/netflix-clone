@@ -16,7 +16,6 @@ function Banner({netflixOriginals}: Props) {
         setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]);
 
     }, [netflixOriginals]);
-    console.log('wer', movie);
     
   return (
     <div className="flex flex-col space-y-2 py-20 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
