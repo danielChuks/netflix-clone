@@ -16,7 +16,6 @@ interface Props {
   documentaries : Movie[],
 }
 
-
 /**
  * we take the type values from the typing.d.ts file and assign it to 
  * @param param 
@@ -42,7 +41,7 @@ const Home = ({
 
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
         <Banner netflixOriginals={netflixOriginals}/>
-      <section>
+      <section className='space-y-15'>
         <Row title="Trending Now" movies={trendingNow}/>
         <Row title="Top Rated" movies={topRated}/>
         <Row title="Action Movies" movies={actionMovies}/>
