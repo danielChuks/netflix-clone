@@ -4,6 +4,10 @@ import Header from '../components/Header'
 import { Movie } from '../typings'
 import request from '../utils/request'
 import Row from '../components/Row';
+import useAuth from '../hooks/useAuth'
+import { useRecoilValue } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
+import Modal from '../components/Modal'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -30,6 +34,14 @@ const Home = ({
       comedyMovies,
       romanceMovies,
       documentaries} : Props) => {
+
+        /// we want the home page 
+      const {loading, logout } = useAuth()
+        if(loading) return null
+
+        // bringing the default modal state from the atoms & modalAtoms folder
+      const showModal = useRecoilValue(modalState)
+
   return (
     <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
@@ -54,7 +66,7 @@ const Home = ({
         <Row title="Documentries" movies={documentaries}/>
 
       </section>
-          {/* model */}
+         {showModal && <Modal />}
         </main>
     </div>
   )

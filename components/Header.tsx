@@ -1,9 +1,11 @@
 import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import useAuth from '../hooks/useAuth';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const {logout} = useAuth()
 /**
  * The use effect takes the handleScroll function to know is window.scrollY is greater than zero i.e was the screen scrolled.
  * The EventListener is waiting to know if there is a change in the event i.e was there any change in the Event, 
@@ -44,13 +46,14 @@ function Header() {
           <MagnifyingGlassIcon className='hidden sm:inline w-6 h-6' />
           <p className='hidden lg:inline'>kids</p>
           <BellIcon className=' w-6 h-6'/>
-          <Link href={'/account'}> 
+          {/* <Link href={'/account'}>  */}
             <img
+            onClick={logout}
               src="https://rb.gy/g1pwyx"
               alt=""
               className="cursor-pointer rounded"
             />
-          </Link>
+          {/* </Link> */}
         </div>
     </header>
   )
