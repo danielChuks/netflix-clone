@@ -66,16 +66,18 @@ function Modal() {
                 playing
                 // muted={muted}
               />
-              <div>
-                <button className='flex item-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6'>
-                  <FaPlay className="h-7 w-7 text-black"/>
-                    Play
-                </button>
-                <button className='modalButton'>
-                  <PlusIcon />
-                </button>
+              <div className='absolute bottom-10 flex w-full items-center justify-between px-10'>
+                <div className='flex space-x-2'>
+                  <button className='flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]'>
+                    <FaPlay className="h-7 w-7 text-black"/>
+                      Play
+                  </button>
+                  <button className='modalButton'>
+                    <PlusIcon />
+                  </button>
+                </div>
               </div>
-            </div>
+          </div>
         </>
     </MuiModal>
   )
