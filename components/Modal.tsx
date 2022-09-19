@@ -1,6 +1,8 @@
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { PlusIcon } from '@heroicons/react/24/solid'
 import MuiModal from '@mui/material/Modal'
 import { useEffect, useState } from 'react'
+import { FaPlay } from 'react-icons/fa'
 import ReactPlayer from 'react-player'
 import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom'
@@ -46,7 +48,10 @@ function Modal() {
     }
 
   return (
-    <MuiModal open={showModal} onClose={handleClose}> 
+    <MuiModal 
+        className="fixed !top-7 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
+        open={showModal} 
+        onClose={handleClose}> 
         <>
             <button onClick={handleClose} className="modalButton absolute right-5 top-5 !z-40 h-6 w-6 border-none bg-[#181818] hover:bg-[#181818]">
                 <XMarkIcon />
@@ -61,6 +66,15 @@ function Modal() {
                 playing
                 // muted={muted}
               />
+              <div>
+                <button className='flex item-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6'>
+                  <FaPlay className="h-7 w-7 text-black"/>
+                    Play
+                </button>
+                <button className='modalButton'>
+                  <PlusIcon />
+                </button>
+              </div>
             </div>
         </>
     </MuiModal>
