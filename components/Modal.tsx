@@ -51,7 +51,8 @@ function Modal() {
             <button onClick={handleClose} className="modalButton absolute right-5 top-5 !z-40 h-6 w-6 border-none bg-[#181818] hover:bg-[#181818]">
                 <XMarkIcon />
             </button>
-            <div>
+            {/* the style included on the react player div is the required style recomended in the reactPlayer docs */}
+            <div className='relative pt-[56.25%]'>
                 <ReactPlayer
                 url={`https://www.youtube.com/watch?v=${trailer}`}
                 width="100%"
