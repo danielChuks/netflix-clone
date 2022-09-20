@@ -2,7 +2,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { PlusIcon } from '@heroicons/react/24/solid'
 import MuiModal from '@mui/material/Modal'
 import { useEffect, useState } from 'react'
-import { FaPlay } from 'react-icons/fa'
+import { FaPlay, FaThumbsUp } from 'react-icons/fa'
 import ReactPlayer from 'react-player'
 import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom'
@@ -74,6 +74,9 @@ function Modal() {
                   </button>
                   <button className='modalButton'>
                     <PlusIcon />
+                  </button>
+                  <button className='modalButton'>
+                    <FaThumbsUp />
                   </button>
                 </div>
               </div>
