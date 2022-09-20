@@ -91,8 +91,31 @@ function Modal() {
                 </button>
               </div>
           </div>
-          <div className=''>
-                
+
+          <div>
+                <div>
+                    <div className="flex items-center space-x-2 text-sm">
+                        <p className="font-semibold text-green-400">
+                          {movie!.vote_average * 10} % March
+                        </p>
+                        <p className="">
+                          {movie?.release_date || movie?.first_air_date}
+                        </p>
+                        <div className='flex h-4 items-center justify-center rounded border border-white/40 px-1.5 text-xs'>
+                            HD
+                      </div>
+                    </div>
+
+                    <div>
+                        <p className='w-5/6'>{movie?.overview}</p>
+                          <div>
+                            <div>
+                              <span className='text-[gray] mr-1'> Genres </span>
+                              {genres.map((genres) => genres.name).join(', ')}
+                            </div>
+                          </div>
+                    </div>
+                </div>
           </div>
         </>
     </MuiModal>
