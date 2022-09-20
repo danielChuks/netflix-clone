@@ -2,7 +2,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { PlusIcon } from '@heroicons/react/24/solid'
 import MuiModal from '@mui/material/Modal'
 import { useEffect, useState } from 'react'
-import { FaPlay, FaThumbsUp } from 'react-icons/fa'
+import { FaPlay, FaThumbsUp, FaVolumeOff, FaVolumeUp } from 'react-icons/fa'
 import ReactPlayer from 'react-player'
 import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom'
@@ -13,6 +13,7 @@ function Modal() {
     const [movie, setMovie] = useRecoilState(movieState)
     const [trailer, setTrailer] = useState("")
     const [genres, setGenres] = useState<Genre[]>([])
+    const [muted, setMuted] = useState(true);
 
 
     ///This useEffect is going to ensure we fetch the videos
@@ -40,7 +41,6 @@ function Modal() {
 
     fetchMovie()
   }, [movie])
-  console.log(trailer)
 
     //helper function that willhelp us close the modal........
     const handleClose = () => {
@@ -64,22 +64,35 @@ function Modal() {
                 height="100%"
                 style={{ position: 'absolute', top: '0', left: '0' }}
                 playing
-                // muted={muted}
+                muted={muted}
               />
               <div className='absolute bottom-10 flex w-full items-center justify-between px-10'>
                 <div className='flex space-x-2'>
+                  {/* play icon button on the modal */}
                   <button className='flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]'>
                     <FaPlay className="h-7 w-7 text-black"/>
                       Play
                   </button>
+                    {/* plus icon button on the player modal */}
                   <button className='modalButton'>
-                    <PlusIcon />
+                    <PlusIcon className='h-7 w-7' />
                   </button>
+                  {/* thumbs up button on the  */}
                   <button className='modalButton'>
-                    <FaThumbsUp />
+                    <FaThumbsUp className='h-7 w-7'/>
                   </button>
                 </div>
+
+                <button className="modalButton" 
+                        onClick={() => setMuted(!muted)}> 
+                        { muted 
+                        ? <FaVolumeOff className='w-5 h-5'/> 
+                        : <FaVolumeUp className='w-5 -5'/> } 
+                </button>
               </div>
+          </div>
+          <div className=''>
+                
           </div>
         </>
     </MuiModal>
