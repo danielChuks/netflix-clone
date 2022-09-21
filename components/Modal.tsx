@@ -106,14 +106,22 @@ function Modal() {
                       </div>
                     </div>
 
-                    <div>
+                    <div className='flex flex-col gap-x-10 gap-y-4 font-light md:flex-row'>
                         <p className='w-5/6'>{movie?.overview}</p>
-                          <div>
+                          <div className='flex flex-col space-y-3 text-sm'>
                             <div>
-                              <span className='text-[gray] mr-1'> Genres </span>
+                              <span className='text-[gray]'> Genres: </span>
                               {genres.map((genres) => genres.name).join(', ')}
                             </div>
-                          </div>
+                            <div>
+                              <span className='text-[gray]'> Original language: </span>
+                              {movie?.original_language}
+                            </div>
+                            <div>
+                              <span className='text-[gray]'> Total votes: </span>
+                              {movie?.vote_count}
+                            </div>
+                       </div>
                     </div>
                 </div>
           </div>
